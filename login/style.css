@@ -19,7 +19,6 @@ body {
     justify-content: center;
     width: 100%;
     margin-top: 100px;
-    margin-left: 21px;
 }
 .card {
     background-color: var(--card-color);
@@ -32,6 +31,14 @@ h1 {
     margin-bottom: 20px;
     color: var(--color-primary);
 }
+#msgError {
+    text-align: center;
+    color: #ff0000;
+    background-color: #fc8181;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+ }
 .label-float input {
     width: 100%;
     padding: 5px 5px;

@@ -13,13 +13,14 @@
     <div class="container">
         <div class="card">
             <h1>Entrar</h1>
+            <div id="msgError"></div>
             <div class="label-float">
                 <input type="text" id="usuario" placeholder=" " required>
-                <label for="usuario">Usuario</label>
+                <label id="userLabel" for="usuario">Usuario</label>
             </div>
             <div class="label-float">
                 <input type="password" id="password" placeholder=" " required>
-                <label for="senha">Senha</label>
+                <label id="senhaLabel" for="senha">Senha</label>
                 <span class="material-icons" id="visibility">
                     visibility
                     </span>
@@ -28,7 +29,7 @@
                         </span>
             </div>
             <div class="justify-center">
-                <button>Entrar</button>
+                <button onclick="entrar()">Entrar</button>
             </div>
             <div class="justify-center">
                 <hr>
