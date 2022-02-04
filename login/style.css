@@ -18,7 +18,7 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 150px;
+    margin-top: 100px;
     margin-left: 21px;
 }
 .card {
@@ -111,4 +111,7 @@ a {
     right: 10px;
     cursor: pointer;
     color: var(--color-primary);
+}
+#notSeePassword {
+    display: none;
 }

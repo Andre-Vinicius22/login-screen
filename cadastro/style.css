@@ -97,6 +97,13 @@ button:hover {
     right: 10px;
     cursor: pointer;
     color: var(--color-primary);
+    z-index: 1;
+}
+#notSeePassword {
+    display: none;
+}
+#notSeeConfirmPassword{
+    display: none;
 }
 #msgError {
    text-align: center;

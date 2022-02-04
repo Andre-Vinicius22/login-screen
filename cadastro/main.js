@@ -1,6 +1,8 @@
 let btn = document.querySelector('#seePassword')
 let btnConfirm = document.querySelector('#seeConfimrPassword')
 
+
+// variaveis para os inputs
 let nome = document.querySelector('#nome')
 let labelNome = document.querySelector('#labelNome')
 let validNome = false
@@ -19,6 +21,8 @@ let validConfirmPassword = false
 
 let msgError = document.querySelector('#msgError')
 let msgSuccess = document.querySelector('#msgSuccess')
+let notSeePassword = document.querySelector('#notSeePassword')
+let notSeeConfirmPassword = document.querySelector('#notSeeConfirmPassword')
 
 //validação de todos os campos
 nome.addEventListener('keyup', ()=>{
@@ -97,6 +101,7 @@ function cadastrar(){
   // Mensagem de erro
       msgSuccess.setAttribute('style', 'display: block;')
       msgSuccess.innerHTML = '<strong>Cadastrando Usuário...</strong>'
+
       msgError.setAttribute('style', 'display: none;') 
       msgError.innerHTML = ''
 
@@ -113,25 +118,36 @@ function cadastrar(){
       msgSuccess.innerHTML = ''
    }
 }
-
+//variaveis dos inputs para visualição de senha
+let inputSenha = document.querySelector('#password')
+let inputConfirmSenha = document.querySelector('#confirmPassword')
 
 //logica para ver a senha digitiada
 btn.addEventListener('click', () => {
-    let inputSenha = document.querySelector('#password')
     
     if(inputSenha.getAttribute("type") == 'password'){
         inputSenha.setAttribute("type", "text")
+        notSeePassword.setAttribute('style', 'display: block;')
     } else {
         inputSenha.setAttribute('type', 'password')
     }
 })
 
+notSeePassword.addEventListener('click', ()=>{
+        notSeePassword.setAttribute('style', 'display: none;')
+        inputSenha.setAttribute('type', 'password')
+})
+
 btnConfirm.addEventListener('click', () => {
-    let inputConfirmSenha = document.querySelector('#confirmPassword')
     
     if(inputConfirmSenha.getAttribute("type") == 'password'){
         inputConfirmSenha.setAttribute("type", "text")
+        notSeeConfirmPassword.setAttribute('style', 'display: block;')
     } else {
         inputConfirmSenha.setAttribute('type', 'password')
     }
+})
+notSeeConfirmPassword.addEventListener('click', ()=>{
+    notSeeConfirmPassword.setAttribute('style', 'display: none;')
+    inputConfirmSenha.setAttribute('type', 'password')
 })
