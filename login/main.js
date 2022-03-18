@@ -1,4 +1,4 @@
-let btn = document.querySelector('#visibility')
+let btn = document.querySelector('#seePassword')
 let notSeePassword = document.querySelector('#notSeePassword')
 let inputSenha = document.querySelector('#password')
 
@@ -6,20 +6,21 @@ let inputSenha = document.querySelector('#password')
 //logica para ver a senha digitiada
 btn.addEventListener('click', () => {
 
-    if(inputSenha.getAttribute("type") == 'password'){
+    if (inputSenha.getAttribute("type") == 'password') {
         inputSenha.setAttribute("type", "text")
         notSeePassword.setAttribute('style', 'display: block;')
+        btn.setAttribute('style', 'display: none;')
     } else {
-       inputSenha.setAttribute('type', 'password')
+        inputSenha.setAttribute('type', 'password')
     }
 })
-
-notSeePassword.addEventListener('click', ()=>{
-        notSeePassword.setAttribute('style', 'display: none;')
-        inputSenha.setAttribute('type', 'password')
+notSeePassword.addEventListener('click', () => {
+    notSeePassword.setAttribute('style', 'display: none;')
+    btn.setAttribute('style', 'display: block;')
+    inputSenha.setAttribute('type', 'password')
 })
 
-function entrar(){
+function entrar() {
     let usuario = document.querySelector('#usuario')
     let userLabel = document.querySelector('#userLabel')
 
@@ -33,23 +34,23 @@ function entrar(){
         user: '',
         senha: ''
     }
-    
-    listaUser = JSON.parse(localStorage.getItem('listaUser'))
-    
-      listaUser.forEach((item)=>{
-          if(usuario.value == item.userCad && password.value == item.senhaCad){
-             userValid = {
-                 nome: item.nomeCad,
-                 user: item.userCad,
-                 senha: item.senhaCad
-             }
-          }
-      })
 
-    if(usuario.value == userValid.user && password.value == userValid.senha){
+    listaUser = JSON.parse(localStorage.getItem('listaUser'))
+
+    listaUser.forEach((item) => {
+        if (usuario.value == item.userCad && password.value == item.senhaCad) {
+            userValid = {
+                nome: item.nomeCad,
+                user: item.userCad,
+                senha: item.senhaCad
+            }
+        }
+    })
+
+    if (usuario.value == userValid.user && password.value == userValid.senha) {
         window.location.href = ' http://127.0.0.1:5500/Home/index.html '
 
-     let token = Math.random().toString(16).substring(2) //na necessidade de um token maior basta concatenar 
+        let token = Math.random().toString(16).substring(2) //na necessidade de um token maior basta concatenar 
         localStorage.setItem('token', token)
         localStorage.setItem('userLogado', JSON.stringify(userValid))
 
@@ -61,7 +62,7 @@ function entrar(){
 
         msgError.setAttribute('style', 'display: block')
         msgError.innerHTML = '*Usuário ou senha incorretos*'
-        
+
         usuario.focus()
     }
 }

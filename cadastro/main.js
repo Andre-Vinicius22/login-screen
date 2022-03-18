@@ -1,5 +1,5 @@
 let btn = document.querySelector('#seePassword')
-let btnConfirm = document.querySelector('#seeConfimrPassword')
+let btnConfirm = document.querySelector('#seeConfirmPassword')
 
 
 // variaveis para os inputs
@@ -25,8 +25,8 @@ let notSeePassword = document.querySelector('#notSeePassword')
 let notSeeConfirmPassword = document.querySelector('#notSeeConfirmPassword')
 
 //validação de todos os campos
-nome.addEventListener('keyup', ()=>{
-    if(nome.value.length <= 2){
+nome.addEventListener('keyup', () => {
+    if (nome.value.length <= 2) {
         labelNome.setAttribute('style', 'color: red')
         labelNome.innerHTML = 'Nome *Insira no minimo 3 caracteres'
         nome.setAttribute('style', 'border-color: red')
@@ -39,8 +39,8 @@ nome.addEventListener('keyup', ()=>{
     }
 })
 
-usuario.addEventListener('keyup', ()=>{
-    if(usuario.value.length <= 4){
+usuario.addEventListener('keyup', () => {
+    if (usuario.value.length <= 4) {
         labelUsuario.setAttribute('style', 'color: red')
         labelUsuario.innerHTML = 'Usuario *Insira no minimo 5 caracteres'
         usuario.setAttribute('style', 'border-color: red')
@@ -53,8 +53,8 @@ usuario.addEventListener('keyup', ()=>{
     }
 })
 
-password.addEventListener('keyup', ()=>{
-    if(password.value.length <= 7){
+password.addEventListener('keyup', () => {
+    if (password.value.length <= 7) {
         labelSenha.setAttribute('style', 'color: red')
         labelSenha.innerHTML = 'senha *Insira no minimo 8 caracteres'
         password.setAttribute('style', 'border-color: red')
@@ -67,8 +67,8 @@ password.addEventListener('keyup', ()=>{
     }
 })
 
-confirmPassword.addEventListener('keyup', ()=>{
-    if(password.value != confirmPassword.value){
+confirmPassword.addEventListener('keyup', () => {
+    if (password.value != confirmPassword.value) {
         labelConfirmSenha.setAttribute('style', 'color: red')
         labelConfirmSenha.innerHTML = 'Confirmar Senha *As Senhas não conferem'
         confirmPassword.setAttribute('style', 'border-color: red')
@@ -83,40 +83,40 @@ confirmPassword.addEventListener('keyup', ()=>{
 
 
 //function para validar e realizar o cadastro
-function cadastrar(){
-   if(validNome && validUsuario && validPassword && validConfirmPassword){
+function cadastrar() {
+    if (validNome && validUsuario && validPassword && validConfirmPassword) {
 
-  //Cadastrando usuario se os campos acima estiverem validos
-  let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
-      
+        //Cadastrando usuario se os campos acima estiverem validos
+        let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
+
         listaUser.push({
-              nomeCad: nome.value,
-              userCad: usuario.value,
-              senhaCad: password.value
-            })
+            nomeCad: nome.value,
+            userCad: usuario.value,
+            senhaCad: password.value
+        })
 
-     // adcionando dados do formulario ao localstorage
-     localStorage.setItem('listaUser', JSON.stringify(listaUser))
+        // adcionando dados do formulario ao localstorage
+        localStorage.setItem('listaUser', JSON.stringify(listaUser))
 
-  // Mensagem de erro
-      msgSuccess.setAttribute('style', 'display: block;')
-      msgSuccess.innerHTML = '<strong>Cadastrando Usuário...</strong>'
+        // Mensagem de erro
+        msgSuccess.setAttribute('style', 'display: block;')
+        msgSuccess.innerHTML = '<strong>Cadastrando Usuário...</strong>'
 
-      msgError.setAttribute('style', 'display: none;') 
-      msgError.innerHTML = ''
+        msgError.setAttribute('style', 'display: none;')
+        msgError.innerHTML = ''
 
-      // navegando para tela de login após o cadastro
-      setTimeout(()=>{
-          window.location.href = ' http://127.0.0.1:5500/login/index.html '
-      }, 2000)//Delay de 2s para navegar até login
+        // navegando para tela de login após o cadastro
+        setTimeout(() => {
+            window.location.href = ' http://127.0.0.1:5500/login/index.html '
+        }, 2000)//Delay de 2s para navegar até login
 
 
-   } else { 
-      msgError.setAttribute('style', 'display: block;') 
-      msgError.innerHTML = '<strong>*Preencha todos os campos corretamente*</strong>'
-      msgSuccess.setAttribute('style', 'display: none;')
-      msgSuccess.innerHTML = ''
-   }
+    } else {
+        msgError.setAttribute('style', 'display: block;')
+        msgError.innerHTML = '<strong>*Preencha todos os campos corretamente*</strong>'
+        msgSuccess.setAttribute('style', 'display: none;')
+        msgSuccess.innerHTML = ''
+    }
 }
 //variaveis dos inputs para visualição de senha
 let inputSenha = document.querySelector('#password')
@@ -124,30 +124,34 @@ let inputConfirmSenha = document.querySelector('#confirmPassword')
 
 //logica para ver a senha digitiada
 btn.addEventListener('click', () => {
-    
-    if(inputSenha.getAttribute("type") == 'password'){
+
+    if (inputSenha.getAttribute("type") == 'password') {
         inputSenha.setAttribute("type", "text")
         notSeePassword.setAttribute('style', 'display: block;')
+        btn.setAttribute('style', 'display: none;')
     } else {
         inputSenha.setAttribute('type', 'password')
     }
 })
 
-notSeePassword.addEventListener('click', ()=>{
-        notSeePassword.setAttribute('style', 'display: none;')
-        inputSenha.setAttribute('type', 'password')
+notSeePassword.addEventListener('click', () => {
+    notSeePassword.setAttribute('style', 'display: none;')
+    btn.setAttribute('style', 'display: block;')
+    inputSenha.setAttribute('type', 'password')
 })
 
 btnConfirm.addEventListener('click', () => {
-    
-    if(inputConfirmSenha.getAttribute("type") == 'password'){
+
+    if (inputConfirmSenha.getAttribute("type") == 'password') {
         inputConfirmSenha.setAttribute("type", "text")
+        btnConfirm.setAttribute('style', 'display: none;')
         notSeeConfirmPassword.setAttribute('style', 'display: block;')
     } else {
         inputConfirmSenha.setAttribute('type', 'password')
     }
 })
-notSeeConfirmPassword.addEventListener('click', ()=>{
+notSeeConfirmPassword.addEventListener('click', () => {
     notSeeConfirmPassword.setAttribute('style', 'display: none;')
+    btnConfirm.setAttribute('style', 'display: block;')
     inputConfirmSenha.setAttribute('type', 'password')
 })

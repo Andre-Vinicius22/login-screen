@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Cadastro</title>
 </head>
+
 <body>
     <div class="container">
         <div class="card">
             <h1>Cadastrar</h1>
-             
+
             <div id="msgError"></div>
             <div id="msgSuccess"></div>
 
@@ -28,22 +29,22 @@
             <div class="label-float">
                 <input type="password" id="password" placeholder=" " required>
                 <label id="labelSenha" for="senha">Senha</label>
-                <span class="material-icons" id="seePassword">
-                visibility
-                </span>
                 <span class="material-icons" id="notSeePassword">
-                visibility_off
+                    visibility
+                </span>
+                <span class="material-icons" id="seePassword">
+                    visibility_off
                 </span>
             </div>
             <div class="label-float">
                 <input type="password" id="confirmPassword" placeholder=" " required>
                 <label id="labelConfirmSenha" for="confirmSenha">Confirmar Senha</label>
-                <span class="material-icons" id="seeConfimrPassword">
-                  visibility
-                </span>
                 <span class="material-icons" id="notSeeConfirmPassword">
+                    visibility
+                </span>
+                <span class="material-icons" id="seeConfirmPassword">
                     visibility_off
-                    </span>
+                </span>
             </div>
             <div class="justify-center">
                 <button onclick="cadastrar()">Cadastrar</button>
@@ -52,4 +53,5 @@
     </div>
     <script src="./main.js"></script>
 </body>
+
 </html>

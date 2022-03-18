@@ -4,11 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <title>Home</title>
 </head>
 <body>
-    <h1 id="logado"></h1>
-    <button onclick="sair()">SAIR</button>
+    <header class="header">
+        <nav>
+            <a class="logo" href="/">Zigg Code</a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/">Sobre</a></li>
+                <li><a href="/">Projetos</a></li>
+                <li><a href="/">Contato</a></li>
+                <button class="btnOut" onclick="sair()">SAIR</button>
+            </ul>
+        </nav>
+    </header>
+    <main> 
+            <div class="container">                  
+                <h1 id="logado"></h1>
+            </div>
+    </main>
     <script src="main.js"></script>
+    <script src="mobile-navbar.js"></script>
 </body>
 </html>

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Login</title>
 </head>
+
 <body>
     <div class="container">
         <div class="card">
@@ -21,12 +22,12 @@
             <div class="label-float">
                 <input type="password" id="password" placeholder=" " required>
                 <label id="senhaLabel" for="senha">Senha</label>
-                <span class="material-icons" id="visibility">
+                <span class="material-icons" id="notSeePassword">
                     visibility
-                    </span>
-                    <span class="material-icons" id="notSeePassword">
-                        visibility_off
-                        </span>
+                </span>
+                <span class="material-icons" id="seePassword">
+                    visibility_off
+                </span>
             </div>
             <div class="justify-center">
                 <button onclick="entrar()">Entrar</button>
@@ -41,4 +42,5 @@
     </div>
     <script src="./main.js"></script>
 </body>
+
 </html>
